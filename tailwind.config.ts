@@ -13,7 +13,16 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+      },
       colors: {
+        "brand-magenta": "hsl(var(--brand-magenta))",
+        "brand-green": "hsl(var(--brand-green))",
+        "brand-dark": "hsl(var(--brand-dark))",
+        "brand-gold": "hsl(var(--brand-gold))",
+        "brand-light-gray": "hsl(var(--brand-light-gray))",
+        "brand-cyan": "hsl(var(--brand-cyan))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
