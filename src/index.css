@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,43 +6,50 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 20%;
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 330 75% 45%;
+    --primary: 215 80% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 0 0% 20%;
+    --secondary: 200 15% 94%;
+    --secondary-foreground: 215 25% 15%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 10% 45%;
 
-    --accent: 330 75% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 38 90% 55%;
+    --accent-foreground: 215 25% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 330 75% 45%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 215 80% 35%;
 
-    --radius: 0.375rem;
+    --radius: 0.5rem;
 
-    /* Custom brand colors */
-    --brand-magenta: 330 75% 45%;
-    --brand-green: 120 40% 35%;
-    --brand-dark: 0 0% 15%;
-    --brand-gold: 40 80% 50%;
-    --brand-light-gray: 0 0% 96%;
-    --brand-cyan: 185 70% 45%;
+    /* Brand palette */
+    --brand-navy: 215 80% 20%;
+    --brand-blue: 215 80% 35%;
+    --brand-sky: 200 75% 50%;
+    --brand-gold: 38 90% 55%;
+    --brand-dark: 215 30% 12%;
+    --brand-slate: 215 15% 55%;
+    --brand-light: 210 20% 97%;
+    --brand-green: 160 60% 40%;
+    --brand-cyan: 190 70% 42%;
+
+    /* Glass */
+    --glass-bg: 215 80% 35% / 0.08;
+    --glass-border: 215 80% 35% / 0.15;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -60,30 +67,57 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-montserrat;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
   }
 }
 
 @layer components {
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-primary text-center mb-2;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center mb-3 font-display;
   }
   .section-subtitle {
-    @apply text-muted-foreground text-center mb-8;
+    @apply text-muted-foreground text-center mb-10 text-base md:text-lg max-w-2xl mx-auto;
   }
   .product-card {
-    @apply bg-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300;
+    @apply bg-card rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-border;
   }
   .service-card {
-    @apply bg-card rounded-lg p-6 text-center shadow-md hover:shadow-xl transition-all duration-300;
+    @apply bg-card rounded-xl p-8 text-center shadow-md hover:shadow-2xl transition-all duration-500 border border-border hover:-translate-y-1;
   }
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity;
+    @apply bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/25;
   }
   .btn-outline-primary {
-    @apply border-2 border-primary text-primary px-6 py-2 rounded-full font-medium hover:bg-primary hover:text-primary-foreground transition-all;
+    @apply border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all;
+  }
+  .btn-gold {
+    @apply bg-accent text-accent-foreground px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-all shadow-lg shadow-accent/30;
   }
   .nav-link {
-    @apply text-foreground font-semibold text-sm uppercase tracking-wide hover:text-primary transition-colors cursor-pointer;
+    @apply text-foreground/80 font-medium text-sm tracking-wide hover:text-primary transition-colors cursor-pointer;
   }
+  .glass-card {
+    @apply backdrop-blur-xl bg-card/80 border border-border/50 rounded-2xl shadow-xl;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-brand-sky bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--brand-slate));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
 }

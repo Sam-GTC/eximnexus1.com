@@ -1,91 +1,131 @@
-import { Phone, Mail, Search, Heart, User, Menu } from "lucide-react";
-import { useState } from "react";
+import { Phone, Mail, Menu, X, Globe, ChevronDown, MessageSquare } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const navItems = ["HOME", "PRODUCTS", "SERVICES", "GALLERY", "VIDEOS", "BLOGS", "TESTIMONIALS", "ABOUT US", "MORE"];
+const navItems = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Products", href: "#products" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollTo = (href: string) => {
+    setMenuOpen(false);
+    const el = document.querySelector(href);
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <header className="w-full">
-      {/* Top bar */}
-      <div className="bg-brand-magenta text-primary-foreground text-xs py-1 px-4 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1">
+    <header className="w-full fixed top-0 left-0 right-0 z-50">
+      {/* Top utility bar */}
+      <div className={`bg-brand-navy text-primary-foreground text-xs py-2 px-4 transition-all duration-300 ${scrolled ? "hidden" : "flex"} items-center justify-between`}>
+        <div className="flex items-center gap-6">
+          <a href="tel:+918888038896" className="flex items-center gap-1.5 hover:text-accent transition-colors">
             <Phone className="w-3 h-3" />
-          </span>
-          <span className="flex items-center gap-1">
+            <span>+91-8888038896</span>
+          </a>
+          <a href="mailto:contact@eximnexus.com" className="flex items-center gap-1.5 hover:text-accent transition-colors">
             <Mail className="w-3 h-3" />
+            <span className="hidden sm:inline">contact@eximnexus.com</span>
+          </a>
+        </div>
+        <div className="flex items-center gap-4">
+          <span className="flex items-center gap-1.5">
+            <Globe className="w-3 h-3" />
+            <span className="hidden sm:inline">Global Trade Partner</span>
           </span>
-          <span className="hidden md:inline">Nutan Colony Road-Kranti Chowk</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <a href="https://www.facebook.com/Nexusin.in/" className="hover:opacity-80">f</a>
-          <a href="https://www.linkedin.com/company/nexus-international8/" className="hover:opacity-80">in</a>
-          <a href="https://www.instagram.com/nexus_international_/" className="hover:opacity-80">ig</a>
-          <a href="https://twitter.com/home" className="hover:opacity-80">tw</a>
-        </div>
-      </div>
-
-      {/* Logo & actions bar */}
-      <div className="bg-background py-3 px-4 flex items-center justify-between border-b border-border">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/></svg>
-          <span className="hidden sm:inline">Nutan Colony Road-Kranti Chowk</span>
-        </div>
-
-        <div className="flex-shrink-0">
-          <img
-            src="https://image1.jdomni.in/storeLogo/23112025/49/53/81/CC4CAF8A1D7B79FA2273ADE4A9_1763917491652.png?output-format=webp"
-            alt="Nexus International Logo"
-            className="h-14 md:h-16 object-contain"
-          />
-        </div>
-
-        <div className="flex items-center gap-4 text-muted-foreground">
-          <Search className="w-5 h-5 cursor-pointer hover:text-primary transition-colors" />
-          <Heart className="w-5 h-5 cursor-pointer hover:text-primary transition-colors" />
-          <div className="flex items-center gap-1 text-sm cursor-pointer hover:text-primary transition-colors">
-            <User className="w-5 h-5" />
-            <span className="hidden md:inline">Log In | Sign Up</span>
+          <div className="flex items-center gap-3">
+            <a href="https://www.facebook.com/Nexusin.in/" className="hover:text-accent transition-colors" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/nexus-international8/" className="hover:text-accent transition-colors" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/nexus_international_/" className="hover:text-accent transition-colors" aria-label="Instagram">ig</a>
           </div>
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="bg-background border-b border-border px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+      {/* Main nav - glassmorphism */}
+      <nav className={`transition-all duration-500 ${
+        scrolled
+          ? "bg-card/90 backdrop-blur-xl shadow-lg border-b border-border/50"
+          : "bg-card/70 backdrop-blur-md"
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <a href="#home" onClick={() => scrollTo("#home")} className="flex-shrink-0">
+            <img
+              src="https://image1.jdomni.in/storeLogo/23112025/49/53/81/CC4CAF8A1D7B79FA2273ADE4A9_1763917491652.png?output-format=webp"
+              alt="Nexus International - Export Import Consultants"
+              className="h-10 md:h-14 object-contain"
+            />
+          </a>
 
-          <ul className="hidden md:flex items-center justify-center gap-6 py-3 w-full">
+          {/* Desktop nav */}
+          <ul className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <li key={item}>
-                <a href="#" className="nav-link text-xs">{item}</a>
+              <li key={item.label}>
+                <button
+                  onClick={() => scrollTo(item.href)}
+                  className="nav-link px-4 py-2 rounded-lg hover:bg-primary/5 transition-all"
+                >
+                  {item.label}
+                </button>
               </li>
             ))}
           </ul>
 
-          <div className="md:hidden flex items-center gap-2 text-sm">
-            <span>0</span>
-            <span>Cart</span>
+          {/* CTA + Mobile toggle */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => scrollTo("#quote")}
+              className="hidden sm:flex items-center gap-2 btn-primary text-sm py-2.5 px-5"
+            >
+              <MessageSquare className="w-4 h-4" />
+              Get Quote
+            </button>
+            <button
+              className="lg:hidden p-2 rounded-lg hover:bg-primary/5 transition-colors"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
 
         {/* Mobile menu */}
-        {menuOpen && (
-          <ul className="md:hidden flex flex-col gap-2 pb-4 px-2">
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-96 border-t border-border/50" : "max-h-0"}`}>
+          <ul className="px-4 py-4 space-y-1 bg-card/95 backdrop-blur-xl">
             {navItems.map((item) => (
-              <li key={item}>
-                <a href="#" className="nav-link text-xs block py-2 border-b border-border">{item}</a>
+              <li key={item.label}>
+                <button
+                  onClick={() => scrollTo(item.href)}
+                  className="nav-link w-full text-left py-3 px-4 rounded-lg hover:bg-primary/5 transition-all"
+                >
+                  {item.label}
+                </button>
               </li>
             ))}
+            <li>
+              <button
+                onClick={() => scrollTo("#quote")}
+                className="btn-primary w-full text-sm mt-2"
+              >
+                Request a Quote
+              </button>
+            </li>
           </ul>
-        )}
+        </div>
       </nav>
     </header>
   );

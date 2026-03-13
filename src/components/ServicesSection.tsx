@@ -1,49 +1,72 @@
+import { Ship, FileCheck, Scale, TrendingUp, Globe, ShieldCheck, Package, Landmark } from "lucide-react";
+
 const services = [
   {
-    image: "https://image3.jdomni.in/library/2C/25/FE/9F75C21AB20FD9601714021ACD_1496254378880_cropped_450X450.jpeg",
-    title: "Freight Forwarding Agencies",
-    description: "We excel in providing a quick and reliable freight forwarding services for our clients as per their needs.",
+    icon: FileCheck,
+    title: "IEC & License Registration",
+    description: "Complete assistance with Import Export Code (IEC), RCMC, FSSAI, and all mandatory trade licenses under DGFT regulations.",
   },
   {
-    image: "https://image3.jdomni.in/library/06/D1/9D/9333AD1EFA1E54BC3F6EC248DF_1496335047865_cropped_450X450.jpeg",
-    title: "Import Export Remittance Advisory Services",
-    description: "We provide the best import export remittance advise and services, book an appointment to consult an expert.",
+    icon: Ship,
+    title: "Freight Forwarding & Logistics",
+    description: "Multi-modal freight solutions — sea, air, and road — with real-time tracking, optimal routing, and cost-efficient cargo management.",
   },
   {
-    image: "https://image2.jdomni.in/library/A5/73/AA/F0233421475D6F460F817BDE6B_1496331923876_cropped_450X450.jpeg",
-    title: "Import Export License Consultants",
-    description: "Capitalising upon abundant knowledge, we render reliable & prompt Import Export License Consultancy services.",
+    icon: Scale,
+    title: "Customs Brokerage Excellence",
+    description: "Expert customs clearance, tariff classification (HS codes), duty computation, and seamless port documentation for hassle-free trade.",
   },
   {
-    image: "https://image3.jdomni.in/library/9D/F9/84/671E5486A4D7CAE898D4B7FD9E_1496937060013_cropped_450X450.jpeg",
-    title: "Import Export Sourcing",
-    description: "With our expertise in this field, we are engaged in providing import export sourcing services.",
+    icon: ShieldCheck,
+    title: "Regulatory Compliance",
+    description: "Navigate complex FEMA, RBI, and DGFT regulations with confidence. We ensure full compliance with export-import laws and trade policies.",
   },
   {
-    image: "https://image3.jdomni.in/library/54/64/D5/DD062AD4AD5BF2E7A0A8AA201E_1496246387656_cropped_450X450.jpeg",
-    title: "Import Export Consultants",
-    description: "Give your import and export business the necessary boost by consulting our skilled and qualified consultants.",
+    icon: TrendingUp,
+    title: "Duty Drawback & Incentives",
+    description: "Maximize your profitability through government schemes — MEIS, RoDTEP, Advance Authorization, and Duty Drawback claims.",
+  },
+  {
+    icon: Globe,
+    title: "Market Entry Strategy",
+    description: "Data-driven market analysis, buyer identification, trade fair coordination, and entry strategies for 35+ international markets.",
+  },
+  {
+    icon: Package,
+    title: "Supply Chain Optimization",
+    description: "End-to-end supply chain consulting — from sourcing and procurement to warehousing, packaging standards, and last-mile delivery.",
+  },
+  {
+    icon: Landmark,
+    title: "Trade Finance Advisory",
+    description: "Expert guidance on Letters of Credit (LC), Bank Guarantees, export credit insurance, and ECGC-backed financing solutions.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 px-4 bg-brand-light-gray">
+    <section id="services" className="py-20 px-4 bg-muted">
       <div className="max-w-7xl mx-auto">
-        <h2 className="section-title">Services</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <span className="text-primary font-semibold text-sm tracking-widest uppercase text-center block">What We Do</span>
+        <h2 className="section-title mt-3">Comprehensive Trade Solutions</h2>
+        <p className="section-subtitle">
+          From documentation to delivery, we provide 360° support for your international trade operations with unmatched expertise and reliability.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div key={index} className="service-card group">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
+              <div className="w-14 h-14 mx-auto mb-5 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-              <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
-              <button className="btn-outline-primary text-sm">Enquire Now</button>
+              <h3 className="text-base font-bold text-foreground mb-3">{service.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5">{service.description}</p>
+              <button
+                onClick={() => document.querySelector("#quote")?.scrollIntoView({ behavior: "smooth" })}
+                className="text-primary text-sm font-semibold hover:text-accent transition-colors"
+              >
+                Learn More →
+              </button>
             </div>
           ))}
         </div>
