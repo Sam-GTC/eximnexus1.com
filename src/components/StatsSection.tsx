@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Package, Globe, Clock, Truck, FlaskConical, Container } from "lucide-react";
+import { Package, Globe, Clock, Truck, FlaskConical, Box } from "lucide-react";
 
 const stats = [
   { value: 500, suffix: "+", label: "Verified Farm Partners", icon: Package },
