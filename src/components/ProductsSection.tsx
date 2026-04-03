@@ -39,7 +39,7 @@ const ProductsSection = () => {
   const getMesh = (idx: number) => activeMesh[idx] ?? 0;
 
   return (
-    <section id="products" className="py-24 px-4 bg-background">
+    <section id="products" className="py-24 px-4 section-alt-muted">
       <div className="max-w-7xl mx-auto">
         <span className="section-label">Product Matrix</span>
         <h2 className="section-heading">Interactive Catalog</h2>

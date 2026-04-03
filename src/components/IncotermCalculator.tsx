@@ -39,7 +39,7 @@ const IncotermCalculator = () => {
   const effectiveCIF = cifTotal - rodtepSaving;
 
   return (
-    <section id="calculator" className="py-24 px-4 bg-background">
+    <section id="calculator" className="py-24 px-4 section-alt-light">
       <div className="max-w-4xl mx-auto">
         <span className="section-label">Financial Engineering</span>
         <h2 className="section-heading">Incoterms & Cost Calculator</h2>

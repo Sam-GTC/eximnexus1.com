@@ -76,6 +76,14 @@
   .section-heading {
     @apply text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 font-display border-l-[5px] border-barn-red pl-5;
   }
+  .section-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--barn-red)), hsl(var(--metallic-gold)));
+    margin-top: 12px;
+  }
   .section-subtitle {
     @apply text-muted-foreground mb-10 text-base md:text-lg max-w-2xl;
   }
@@ -83,10 +91,22 @@
     @apply text-barn-red font-bold text-xs tracking-[0.25em] uppercase mb-3 block;
   }
   .product-card {
-    @apply bg-card overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-border;
+    @apply bg-card overflow-hidden shadow-md border border-border transition-all duration-500;
+    transform: translateY(0);
+  }
+  .product-card:hover {
+    @apply shadow-2xl;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px hsl(var(--dark-earth) / 0.25);
   }
   .service-card {
-    @apply bg-card p-8 text-center shadow-md hover:shadow-2xl transition-all duration-500 border border-border hover:-translate-y-1;
+    @apply bg-card p-8 text-center shadow-md border border-border transition-all duration-500;
+    transform: translateY(0);
+  }
+  .service-card:hover {
+    @apply shadow-2xl;
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px -8px hsl(var(--dark-earth) / 0.2);
   }
   .btn-gold {
     @apply bg-gradient-to-r from-metallic-gold to-[hsl(43,80%,45%)] text-dark-earth px-8 py-3 font-bold uppercase tracking-[2px] text-sm transition-all shadow-lg hover:shadow-xl hover:brightness-110;
@@ -105,6 +125,16 @@
   }
   .gold-border {
     @apply border-2 border-metallic-gold;
+  }
+  /* Alternating section backgrounds */
+  .section-alt-light {
+    @apply bg-background;
+  }
+  .section-alt-muted {
+    background: linear-gradient(180deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+  }
+  .section-alt-warm {
+    background: linear-gradient(180deg, hsl(var(--warm-sand)) 0%, hsl(var(--muted)) 100%);
   }
 }
 
