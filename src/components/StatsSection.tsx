@@ -5,7 +5,7 @@ const stats = [
   { value: 500, suffix: "+", label: "Verified Farm Partners", icon: Package },
   { value: 35, suffix: "+", label: "Countries Served", icon: Globe },
   { value: 72, suffix: "hr", label: "Sample Dispatch", icon: Clock },
-  { value: 24, suffix: " MT", label: "Per Container Load", icon: Container },
+  { value: 24, suffix: " MT", label: "Per Container Load", icon: Box },
   { value: 14, suffix: "-pt", label: "Quality Checks", icon: FlaskConical },
   { value: 7, suffix: " days", label: "Transit to GCC", icon: Truck },
 ];
