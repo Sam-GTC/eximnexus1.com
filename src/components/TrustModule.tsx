@@ -46,7 +46,7 @@ const TrustModule = () => {
     <section id="trust" className="py-24 px-4 bg-dark-earth text-off-white">
       <div className="max-w-7xl mx-auto">
         <span className="text-metallic-gold font-bold text-xs tracking-[0.25em] uppercase mb-3 block">Compliance & Certifications</span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 border-l-[5px] border-metallic-gold pl-5">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 border-l-[5px] border-metallic-gold pl-5 [&::after]:bg-[linear-gradient(90deg,hsl(var(--metallic-gold)),hsl(var(--off-white)/0.3))]">
           The Gold Standard in Food Safety
         </h2>
         <p className="text-off-white/60 text-lg max-w-2xl mb-12">

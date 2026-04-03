@@ -23,7 +23,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-24 px-4 bg-warm-sand">
+    <section id="testimonials" className="py-24 px-4 section-alt-muted">
       <div className="max-w-7xl mx-auto">
         <span className="section-label">Client Testimonials</span>
         <h2 className="section-heading">Trusted by Global Buyers</h2>
@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mt-12">
           {testimonials.map((t, i) => (
-            <div key={i} className="bg-card p-8 shadow-md hover:shadow-xl transition-shadow border border-border relative">
+            <div key={i} className="bg-card p-8 shadow-md border border-border relative transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" style={{ boxShadow: undefined }}>
               <Quote className="absolute top-6 right-6 w-8 h-8 text-barn-red/10" />
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: t.rating }).map((_, j) => (

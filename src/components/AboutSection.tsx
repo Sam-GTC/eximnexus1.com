@@ -11,7 +11,7 @@ const highlights = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4 bg-background">
+    <section id="about" className="py-24 px-4 section-alt-muted">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>

@@ -48,7 +48,7 @@ const OriginSection = () => {
   }, []);
 
   return (
-    <section id="origin" className="py-24 px-4 bg-background" ref={sectionRef}>
+    <section id="origin" className="py-24 px-4 section-alt-light" ref={sectionRef}>
       <div className="max-w-7xl mx-auto">
         <span className="section-label">Farm-to-Factory</span>
         <h2 className="section-heading">Direct-from-Source Integrity</h2>

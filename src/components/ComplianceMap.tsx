@@ -30,7 +30,7 @@ const ComplianceMap = () => {
   const region = regionData[activeRegion];
 
   return (
-    <section id="compliance" className="py-24 px-4 bg-muted">
+    <section id="compliance" className="py-24 px-4 section-alt-warm">
       <div className="max-w-7xl mx-auto">
         <span className="section-label">Global Reach</span>
         <h2 className="section-heading">Compliance Map</h2>
