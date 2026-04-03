@@ -23,7 +23,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-24 px-4 bg-warm-sand">
+    <section id="testimonials" className="py-24 px-4 section-alt-muted">
       <div className="max-w-7xl mx-auto">
         <span className="section-label">Client Testimonials</span>
         <h2 className="section-heading">Trusted by Global Buyers</h2>
