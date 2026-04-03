@@ -126,13 +126,30 @@
 
 /* Reveal on scroll */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll:not(.revealed) {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 }
 .reveal-on-scroll.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* SKT-style section separator */
+.section-divider {
+  @apply w-full py-16 px-4 text-center;
+}
+.section-divider h3 {
+  @apply text-2xl md:text-3xl font-display font-bold mb-4;
+}
+.section-divider p {
+  @apply text-sm md:text-base max-w-xl mx-auto mb-6;
 }
 
 /* Custom scrollbar */
